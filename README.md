@@ -19,7 +19,13 @@ mysql-connector-python==9.0.0
 mysqlclient==2.2.4
 pycparser==2.22
 PyMySQL==1.1.1
+python-dotenv==1.0.1
 Werkzeug==2.2.2
+
 
 ## Instalación
 pip install -r requirements.txt
+
+## Ejecución utilizando el entorno virtual
+.\venv\Scripts\activate
+python .\src\app.py

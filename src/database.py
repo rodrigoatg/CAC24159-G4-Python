@@ -4,7 +4,7 @@ database = mysql.connector.connect(
     host='127.0.0.1',
     user='root',
     password='@d9876',
-    database='clientes'
+    database='automotores_srl'
 )
 
 if database.is_connected():

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content = "Grupo 4 - CaC Comisión 24159">
+    <meta name="description" content="Empresa de dicada a la compra/venta de vehículos automotor.">
+    <!--Estilos-->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!--lista de keywords-->
+    <meta name="keywords" content="auto, utomotores, venta, compra, compraventa, compra-venta, concesionaria, concesionario">
+    <!--Copyright-->
+    <meta name="copyright" content="Grupo 4 - Rodrigo Tarrío - CaC Comisión 24159|Automotores - SRL"> 
+    <!--Icono-->
+    <link rel="shortcut icon" href="../static/assets/pageIcon2.ico" type="image/x-icon">
+    <!--Titulo-->
+    <title>Consultas|Automotores - SRL</title>
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0">
+        <!--  HEADER - INICIO    -->
+        <header class="encabezado" >
+          <div class="d-flex justify-content-end align-items-center">
+            <h1 class="font-weight-bold encabezado__Titulo">
+              Automotores SRL
+            </h1>
+          </div>
+          <nav class="navbar navbar-expand-lg navbar-dark d-flex flex-row-reverse navbarpos">
+            <div class="container-fluid p-2">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler navbar-button-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <section class="navbar-toggler-icon "></section>
+              </button> 
+              <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 container-fluid justify-content-end">
+                  <li class="nav-item navHipervinculo px-3">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Inicio</a>
+                  </li>
+                    <li class="nav-item navHipervinculo px-3">
+                        <a class="nav-link " href="{{ url_for('productos') }}">Catálogo</a>
+                    </li>
+                    <li class="nav-item navHipervinculo px-3">
+                        <a class="nav-link" href="{{ url_for('consultas') }}">Consultas</a>
+                    </li>
+                    <li class="nav-item navHipervinculo px-3">
+                        <a class="nav-link" href="{{ url_for('about') }}">Institucional</a>
+                    </li>
+                    {% if is_admin %}
+                    <li class="nav-item navHipervinculo px-3">
+                        <a class="nav-link" href="{{ url_for('adminAutomotores') }}">Administrar Catálogo</a>
+                    </li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <!--  HEADER - FIN    -->
+    
+        <!-- MAIN INICIO-->
+        <main class="p-3">
+            <section class="consultas-info">
+              <p>Realice su consulta por el automotor que desee. Le responderemos a la brevedad por alguno de los medios proporcionados.</p>
+            </section>
+            <form action="" class="consultas-main" onsubmit="return validarFormulario()">
+              
+              <label for="nombre" class="">Nombre</label>
+              <input type="text" id="nombre" name="nombre" class="consultasInput50 mb-3">
+          
+              <label for="apellido" class="">Apellido</label>
+              <input type="text" id="apellido" name="apellido" class="consultasInput50 mb-3">
+              
+              <label for="telefono" class="">Teléfono</label>
+              <div>
+                <input type="radio" id="celular" name="tipo" value="celular" checked />
+                <label for="celular">Celular</label>
+                <input type="radio" id="fijo" name="tipo" value="fijo" />
+                <label for="fijo">Teléfono Fijo</label>
+              </div>
+              <input type="tel" id="telefono" name="telefono" class="consultasInput50 mb-3">
+          
+              <label for="email" class="">Email</label>
+              <input type="email" id="email" name="email" class="consultasInput50 mb-3">
+          
+              Me identifico:
+              <select name="preferencia" id="preferencia" class="consultasInput25 mb-3">
+                  <option>Hombre</option>
+                  <option>Mujer</option>
+                  <option>Otro</option>
+                  <option>Prefiero no decir...</option>
+              </select>
+          
+              <label for="consulta" class="">Consulta</label>
+              <textarea name="consulta" id="consulta" cols="30" rows="10" class="mb-5"></textarea>
+              
+              <br>
+              
+              <input class="consultas-boton" type="submit" value="Enviar">
+          </form>
+        </main>
+    </div>
+
+    <footer class="footer">
+      <br>
+      <div class="footer__vinculos">
+          <a href="{{ url_for('index') }}"> Inicio</a>
+          <br>
+          <a href="{{ url_for('productos') }}"> Catálogo</a>
+          <br>
+          <a href="{{ url_for('consultas') }}"> Consultas</a>
+          <br>
+          <a href="{{ url_for('about') }}"> Institucional</a>
+          <br><br>
+      </div>
+      <br>
+      <div class="footer__info">
+          Todos los derechos reservados
+      </div>
+  </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>
